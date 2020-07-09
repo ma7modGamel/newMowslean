@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottomNavigationOrderId"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="الطلبات" />
+
+    <item android:id="@+id/notificationNavigationOrderId"
+        android:title=""
+
+        />
+
+    <item
+        android:id="@+id/bottomNavigationPersonId"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="الحساب" />
+</menu>
