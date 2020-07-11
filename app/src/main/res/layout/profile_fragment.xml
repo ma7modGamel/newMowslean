@@ -1,13 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#fff"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".mainfragments.profile.ProfileFragment">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="50dp"
+        android:background="@drawable/toolbar">
 
-</FrameLayout>
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#5db547"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center"
+            android:text="حسابي"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"
+            />
+    </androidx.appcompat.widget.Toolbar>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="37dp"
+        android:id="@+id/profile_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:src="@drawable/avatar" />
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:lineSpacingExtra="4sp"
+        android:gravity="end"
+        android:text="أسم المندوب"
+        />
+    <RelativeLayout
+        android:layout_marginTop="37dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/iv_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_return"
+            android:layout_marginEnd="30dp"
+            />
+        <TextView
+            android:id="@+id/tv_PreviousOrders"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/iv_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#222222"
+            android:lineSpacingExtra="3sp"
+            android:gravity="end"
+            android:text="الطلبات السابقة"
+            />
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/tv_PreviousOrders"
+            android:background="#eeeeee"
+            android:layout_marginTop="15dp"
+            />
+    </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_order"
+            android:layout_marginEnd="30dp"
+            />
+        <TextView
+            android:id="@+id/tv_PendingOrders"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/iv_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#222222"
+            android:lineSpacingExtra="3sp"
+            android:gravity="end"
+            android:text="الطلبات الحالية"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/tv_PendingOrders"
+            android:background="#eeeeee"
+            android:layout_marginTop="15dp"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_cog"
+        android:layout_marginEnd="30dp"
+        />
+    <TextView
+        android:id="@+id/tv_settings"
+        android:textStyle="bold"
+        android:layout_marginEnd="10dp"
+        android:layout_toStartOf="@+id/iv_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#222222"
+        android:lineSpacingExtra="3sp"
+        android:gravity="end"
+        android:text="الإعدادات"
+        />
+    </RelativeLayout>
+</LinearLayout>
