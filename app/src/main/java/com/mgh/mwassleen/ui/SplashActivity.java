@@ -21,6 +21,8 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         Utils.setLocale(this,"en");
+
+
     }
 
     public void openLogin(View view) {
@@ -37,6 +39,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void openRegester(View view) {
+
         showFragment(new RegisterFragment());
     }
 }

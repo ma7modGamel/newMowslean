@@ -4,6 +4,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 
 import com.mgh.mwassleen.R;
 import com.mgh.mwassleen.databinding.LoginFragmentBinding;
+import com.mgh.mwassleen.ui.MainActivity;
 import com.mgh.mwassleen.ui.controluser.ressetpass.RessetPasswordFragment;
 
 public class LoginFragment extends Fragment {
@@ -55,6 +57,14 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 backPressed();
+            }
+        });
+        loginFragmentBinding.btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), MainActivity.class);
+                getContext().startActivity(intent);
+                getActivity().finish();
             }
         });
     }
