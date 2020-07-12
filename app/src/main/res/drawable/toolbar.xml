@@ -6,15 +6,15 @@
     <!-- Bottom 2dp Shadow -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#08000000"/>
+            <solid android:color="@color/white"/>
         </shape>
     </item>
 
     <!-- White Top color -->
     <item android:bottom="4dp">
         <shape android:shape="rectangle">
-            <solid android:color="#FFFFFF" />
-            <stroke android:width="2dp" android:color="#fff"/>
+            <solid android:color="@color/white" />
+            <stroke android:width="2dp" android:color="@color/white"/>
         </shape>
     </item>
 </layer-list>

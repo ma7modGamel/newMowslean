@@ -7,14 +7,14 @@
 
         <variable
             name="mainVmodel"
-            type="com.mgh.mwassleen.MainActivityViewModel" />
+            type="com.mgh.mwassleen.ui.MainActivityViewModel" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".ui.MainActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"

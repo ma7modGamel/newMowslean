@@ -1,149 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#fff"
-    tools:context=".controluser.login.loginFragment">
-    <androidx.appcompat.widget.Toolbar
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="loginVvModel"
+            type="com.mgh.mwassleen.ui.controluser.login.LoginViewModel" />
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/toolbar">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".ui.controluser.login.LoginFragment">
 
-        <ImageButton
-            android:id="@+id/ib_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_arrow" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="#5db547"
-            android:lineSpacingExtra="4sp"
-            android:gravity="center"
-            android:text="تسجيل الدخول"
-            android:layout_gravity="end"
-            android:layout_marginEnd="15dp"
-            />
-    </androidx.appcompat.widget.Toolbar>
-
-    <ImageView
-        android:scaleType="centerCrop"
-        android:src="@drawable/profile"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:id="@+id/iv_logo"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="center"
-        />
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:textColor="#333333"
-        android:gravity="center_horizontal"
-        tools:text="موصلين"
-        android:layout_gravity="center"
-        />
-    <LinearLayout
-        android:layout_marginTop="100dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="اسم المستخدم"
-            android:layout_marginEnd="15dp"
-            android:lineSpacingExtra="4sp"
-            android:layout_gravity="end"
-            android:textSize="14sp"
-            android:textColor="@color/colorPrimary"
-            />
-        <EditText
-            android:drawablePadding="15dp"
-            android:textDirection="ltr"
-            android:gravity="end"
-            android:id="@+id/et_userName"
-            android:inputType="text"
-            android:drawableEnd="@drawable/ic_user"
-            android:textColor="#000"
+        <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:padding="15dp"
-            android:background="@drawable/edittext"
-            />
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="كلمة المرور"
-            android:layout_marginEnd="15dp"
-            android:lineSpacingExtra="4sp"
-            android:layout_gravity="end"
-            android:textSize="14sp"
-            android:textColor="@color/colorPrimary"
-            />
-        <EditText
-            android:drawablePadding="15dp"
-            android:textDirection="ltr"
-            android:gravity="end"
-            android:id="@+id/et_password"
-            android:inputType="textPassword"
-            android:padding="15dp"
-            android:drawableEnd="@drawable/ic_passowrd"
-            android:textColor="#000"
+            android:background="@drawable/toolbar"
+            android:elevation="0dp">
+
+            <ImageButton
+                android:id="@+id/ib_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_arrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:lineSpacingExtra="4sp"
+                android:text="تسجيل الدخول"
+                android:textColor="#5db547"
+                android:textSize="14sp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/edittext"
-            />
-        
-    </LinearLayout>
+            android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="15dp"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_signIn"
-            android:layout_toEndOf="@+id/tv_forgetPass"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="end"
-            android:layout_marginStart="91dp"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
-            android:background="@drawable/btnclickcolor"
-            android:text="تسجيل الدخول"
-            android:textSize="14sp"
-            android:textColor="#ffffff"
-            android:lineSpacingExtra="4sp"
-            android:layout_marginEnd="15dp"
-            android:gravity="center"
-            />
-    <TextView
-        android:layout_marginTop="33dp"
-        android:id="@+id/tv_forgetPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textColor="#b9b9b9"
-        android:lineSpacingExtra="3sp"
-        android:gravity="end"
-        android:text="نسيت كلمة المرور"
-        android:layout_marginStart="15dp"
-        />
-    </RelativeLayout>
-</LinearLayout>
+                <LinearLayout
+
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_logo"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_horizontal"
+                        android:textColor="#333333"
+                        android:textSize="50sp"
+                        android:textStyle="bold"
+                        tools:text="موصلين" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="32dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="15dp"
+                        android:lineSpacingExtra="4sp"
+                        android:text="اسم المستخدم"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/et_userName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/edittext"
+                        android:drawableEnd="@drawable/ic_user"
+                        android:drawablePadding="15dp"
+                        android:gravity="end"
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:textColor="#000"
+                        android:textDirection="ltr" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="15dp"
+                        android:lineSpacingExtra="4sp"
+                        android:text="كلمة المرور"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/edittext"
+                        android:drawableEnd="@drawable/ic_passowrd"
+                        android:drawablePadding="15dp"
+                        android:gravity="end"
+                        android:inputType="textPassword"
+                        android:padding="15dp"
+                        android:textColor="#000"
+                        android:textDirection="ltr" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+
+                        android:minHeight="120dp"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_forgetPass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+
+                            android:lineSpacingExtra="3sp"
+                            android:text="نسيت كلمة المرور"
+                            android:textColor="#b9b9b9"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/btn_signIn"
+                            android:layout_width="160dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_toEndOf="@+id/tv_forgetPass"
+                            android:background="@drawable/btnclickcolor"
+                            android:gravity="center"
+                            android:lineSpacingExtra="4sp"
+                            android:text="تسجيل الدخول"
+                            android:textColor="#ffffff"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+</layout>
