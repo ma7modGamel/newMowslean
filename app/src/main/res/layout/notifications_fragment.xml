@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#03A9F4"
+    android:orientation="vertical"
+    android:background="#f6f6f6"
     tools:context=".ui.mainfragments.notifications.NotificationsFragment">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/toolbar"
+        android:elevation="0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:lineSpacingExtra="4sp"
+            android:text="الإشعارات"
+            android:textColor="#5db547"
+            android:textSize="14sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:gravity="end"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="25dp"
+            android:text="عرض حسب المنطقة"
+            android:textColor="#b4b4b4"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:lineSpacingExtra="3sp"
+            android:background="#eeeeee"
+            android:layout_marginEnd="81dp"
+            android:id="@+id/btn_showLocation"
+
+            />
+
+        <TextView
+            android:layout_marginEnd="5dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#5db547"
+            android:lineSpacingExtra="4sp"
+            android:layout_gravity="end"
+            android:text="إشعار جديد"
+            />
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginEnd="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:lineSpacingExtra="4sp"
+            android:layout_gravity="end"
+            android:text="2"
+            android:id="@+id/tv_notificationsNumber"
+            />
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#5db547"
+            android:lineSpacingExtra="4sp"
+            android:layout_gravity="end"
+            android:text="لديك"
+            />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_marginTop="20dp"
+        android:id="@+id/rv_notifications"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        />
 
-</FrameLayout>
+</LinearLayout>
