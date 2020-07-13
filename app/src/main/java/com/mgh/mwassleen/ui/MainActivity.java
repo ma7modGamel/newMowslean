@@ -1,5 +1,6 @@
 package com.mgh.mwassleen.ui;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.mgh.mwassleen.R;
@@ -32,13 +33,12 @@ public class MainActivity extends AppCompatActivity {
         globalPrefrencies=new GlobalPrefrencies(this);
         activityMainBinding.setLifecycleOwner(this);
         Utils.setLocale(this,globalPrefrencies.getLanguage());
-        setSupportActionBar(activityMainBinding.toolbar);
 
         initWidget();
+
     }
     PagerAdaptar adaptar;
     private void initWidget() {
-
         adaptar = new PagerAdaptar(getSupportFragmentManager());
         adaptar.addNewFragment(new OrdersFragment());
         adaptar.addNewFragment(new NotificationsFragment());
@@ -46,16 +46,14 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding.tabLayout.setupWithViewPager(activityMainBinding.viewpager);
         activityMainBinding.viewpager.setAdapter(adaptar);
         setUpTabsTopPager();
-
     }
     private void setUpTabsTopPager() {
      activityMainBinding.tabLayout.getTabAt(0).setText("الطلبات");
-        activityMainBinding.tabLayout.getTabAt(0).setIcon(R.drawable.avatar);
+        activityMainBinding.tabLayout.getTabAt(0).setIcon(R.drawable.ic_order);
         activityMainBinding.tabLayout.getTabAt(1).setText("");
         activityMainBinding.tabLayout.getTabAt(2 ).setText("حسابي");
-
-        //tabLayout.setTabTextColors(Color.parseColor("#FFAFAFAF"), Color.parseColor("#000000"));
-
+        activityMainBinding.tabLayout.getTabAt(2).setIcon(R.drawable.ic_user);
+        activityMainBinding.tabLayout.setTabTextColors(Color.parseColor("#FFAFAFAF"), Color.parseColor("#000000"));
     }
 
 

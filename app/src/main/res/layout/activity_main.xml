@@ -16,31 +16,19 @@
         android:layout_height="match_parent"
         tools:context=".ui.MainActivity">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-        </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout
             android:id="@+id/container"
             android:layout_marginBottom="60dp"
-            android:layout_marginTop="?actionBarSize"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewpager"
+                android:layoutDirection="inherit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
+
         </FrameLayout>
 
         <com.google.android.material.tabs.TabLayout
@@ -51,11 +39,9 @@
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             android:background="@color/colorAccent"
+            app:tabInlineLabel="true"
 
-
-            app:labelVisibilityMode="labeled"
-
-            app:menu="@menu/bottom_navigation_menu" />
+            />
 
 
         <LinearLayout
@@ -73,7 +59,7 @@
 
                 android:layout_marginBottom="24dp"
                 android:layout_height="65dp"
-                android:src="@color/colorPrimary" />
+                android:src="@mipmap/ic_notiwhite" />
 
 
         </LinearLayout>
