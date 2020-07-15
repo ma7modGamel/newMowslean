@@ -1,10 +1,12 @@
 
 package com.mgh.mwassleen.models.Login;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UserLoginModel {
+public class UserLoginModel implements Serializable
+{
 
     @SerializedName("success")
     @Expose
@@ -15,6 +17,7 @@ public class UserLoginModel {
     @SerializedName("message")
     @Expose
     private String message;
+    private final static long serialVersionUID = 8134109711109773184L;
 
     public Boolean getSuccess() {
         return success;

@@ -43,6 +43,8 @@ public class ProfileFragment extends Fragment {
         profileFragmentBinding.setProfileVmodel(mViewModel);
         profileFragmentBinding.setLifecycleOwner(this);
 
+        profileFragmentBinding.tvUserName.setText(globalPrefrencies.getName());
+
 
 
         // TODO: Use the ViewModel

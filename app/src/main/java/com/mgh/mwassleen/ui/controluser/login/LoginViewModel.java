@@ -3,6 +3,7 @@ package com.mgh.mwassleen.ui.controluser.login;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -30,11 +31,11 @@ public class LoginViewModel extends ViewModel {
             @Override
             public void onResponse(Call<UserLoginModel> call, Response<UserLoginModel> response) {
 
-                    model = response.body();
-                    userLoginModelMutableLiveData.setValue(response.body());
-                    Intent intent = new Intent(context, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    context.startActivity(intent);
+                   if (response.isSuccessful()){
+                       userLoginModelMutableLiveData.setValue(response.body());
+                   }else {
+                       Toast.makeText(context, ""+response.message(), Toast.LENGTH_SHORT).show();
+                   }
             }
 
             @Override

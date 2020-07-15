@@ -1,10 +1,12 @@
 
 package com.mgh.mwassleen.models.Login;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Data {
+public class Data implements Serializable
+{
 
     @SerializedName("id")
     @Expose
@@ -14,7 +16,8 @@ public class Data {
     private String name;
     @SerializedName("phone")
     @Expose
-    private Integer phone;
+    private String phone;
+    private final static long serialVersionUID = 4446204397713192217L;
 
     public Integer getId() {
         return id;
@@ -32,11 +35,11 @@ public class Data {
         this.name = name;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

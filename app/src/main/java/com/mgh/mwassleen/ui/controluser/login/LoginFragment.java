@@ -74,24 +74,21 @@ public class LoginFragment extends Fragment {
                 if (onCheackValidation()) {
                     setUpLogin();
                 }
-
-
-
-                Intent intent=new Intent(getContext(), MainActivity.class);
-                getContext().startActivity(intent);
-                getActivity().finish();
             }
         });
 
     }
     private void setUpLogin() {
+        mViewModel.onClickLogin(loginFragmentBinding.etUserName.getText().toString(),getContext());
         mViewModel.userLoginModelMutableLiveData.observe(this, new Observer<UserLoginModel>() {
             @Override
             public void onChanged(UserLoginModel data) {
                 int id = data.getData().getId();
                 String name = data.getData().getName();
                 String phone = data.getData().getPhone().toString();
-
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 Toast.makeText(getContext(), "مرحبا بك " + name, Toast.LENGTH_LONG).show();
 
                 globalPrefrencies.storeLoginStatus(true);
@@ -127,14 +124,13 @@ public class LoginFragment extends Fragment {
         if (!ValidatePhone()) {
             return false;
         }
-
         return true;
     }
 
 
     private boolean ValidatePhone() {
-        if (loginFragmentBinding.etPassword.getText().toString().trim().isEmpty()) {
-            loginFragmentBinding.etPassword.setError("من فضلك املأ هذا الحقل");
+        if (loginFragmentBinding.etUserName.getText().toString().trim().isEmpty()) {
+            loginFragmentBinding.etUserName.setError("من فضلك املأ هذا الحقل");
             Utils.requestFocus(loginFragmentBinding.etPassword, getActivity().getWindow());
             return false;
         }
