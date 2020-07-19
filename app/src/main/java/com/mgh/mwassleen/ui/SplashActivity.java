@@ -11,7 +11,7 @@ import android.view.View;
 import com.mgh.mwassleen.R;
 import com.mgh.mwassleen.ui.controluser.login.LoginFragment;
 import com.mgh.mwassleen.ui.controluser.regester.RegisterFragment;
-import com.mgh.mwassleen.ui.controluser.ressetpass.RessetPasswordFragment;
+
 import com.mgh.mwassleen.utils.Utils;
 
 public class SplashActivity extends AppCompatActivity {
@@ -39,7 +39,6 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void openRegester(View view) {
-
         showFragment(new RegisterFragment());
     }
 }

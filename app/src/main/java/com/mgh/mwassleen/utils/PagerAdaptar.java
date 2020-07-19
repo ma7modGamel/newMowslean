@@ -7,8 +7,10 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Collections.reverse;
+
 public class PagerAdaptar extends FragmentPagerAdapter {
-    List<Fragment> fragmentList;
+    ArrayList<Fragment> fragmentList;
 
     public PagerAdaptar(FragmentManager fm) {
         super(fm);
@@ -26,6 +28,7 @@ public class PagerAdaptar extends FragmentPagerAdapter {
     }
 
     public void addNewFragment(Fragment fragment) {
+        reverse(fragmentList);
         fragmentList.add(fragment);
     }
 }

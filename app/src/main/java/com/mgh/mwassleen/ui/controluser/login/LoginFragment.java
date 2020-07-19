@@ -15,16 +15,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.mgh.mwassleen.R;
 import com.mgh.mwassleen.databinding.LoginFragmentBinding;
-import com.mgh.mwassleen.models.Login.Data;
 import com.mgh.mwassleen.models.Login.UserLoginModel;
 import com.mgh.mwassleen.ui.MainActivity;
+import com.mgh.mwassleen.ui.controluser.otp.OtpFragment;
 import com.mgh.mwassleen.ui.controluser.ressetpass.RessetPasswordFragment;
-import com.mgh.mwassleen.utils.GlobalPrefrencies;
-import com.mgh.mwassleen.utils.Utils;
 
 public class LoginFragment extends Fragment {
 
@@ -44,13 +41,10 @@ public class LoginFragment extends Fragment {
         return loginFragmentBinding.getRoot();
     }
 
-    GlobalPrefrencies globalPrefrencies;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel =new ViewModelProvider(this).get(LoginViewModel.class);
-        globalPrefrencies = new GlobalPrefrencies(getContext());
-        Utils.setLocale(getContext(),globalPrefrencies.getLanguage());
         // TODO: Use the ViewModel
         loginFragmentBinding.setLoginVvModel(mViewModel);
         loginFragmentBinding.setLifecycleOwner(this);
@@ -71,38 +65,32 @@ public class LoginFragment extends Fragment {
         loginFragmentBinding.btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (onCheackValidation()) {
-                    setUpLogin();
-                }
+              LoginUser();
             }
         });
 
+
+
     }
-    private void setUpLogin() {
+
+    private void LoginUser() {
         mViewModel.onClickLogin(loginFragmentBinding.etUserName.getText().toString(),getContext());
         mViewModel.userLoginModelMutableLiveData.observe(this, new Observer<UserLoginModel>() {
             @Override
-            public void onChanged(UserLoginModel data) {
-                int id = data.getData().getId();
-                String name = data.getData().getName();
-                String phone = data.getData().getPhone().toString();
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                Toast.makeText(getContext(), "مرحبا بك " + name, Toast.LENGTH_LONG).show();
+            public void onChanged(UserLoginModel userLoginModel) {
+                if(userLoginModel!=null) {
 
-                globalPrefrencies.storeLoginStatus(true);
-                globalPrefrencies.storeUserId(id);
-                globalPrefrencies.storeName(name);
-                globalPrefrencies.storePhone(phone);
+                    Bundle bundle=new Bundle();
+                    bundle.putSerializable("dataUser", userLoginModel.getData());
+                    OtpFragment otpFragment=new OtpFragment();
+                    otpFragment.setArguments(bundle);
+                    showFragment(otpFragment);
 
+                }
             }
         });
-
-        mViewModel.onClickLogin(
-                loginFragmentBinding.etUserName.getText().toString()
-                , getContext());
     }
+
     public void showFragment(Fragment fragment) {
         if (getFragmentManager().getBackStackEntryCount() > 1) {
             getFragmentManager().popBackStack();
@@ -118,22 +106,5 @@ public class LoginFragment extends Fragment {
         } else {
             getActivity().finish();
         }
-    }
-    public boolean onCheackValidation() {
-
-        if (!ValidatePhone()) {
-            return false;
-        }
-        return true;
-    }
-
-
-    private boolean ValidatePhone() {
-        if (loginFragmentBinding.etUserName.getText().toString().trim().isEmpty()) {
-            loginFragmentBinding.etUserName.setError("من فضلك املأ هذا الحقل");
-            Utils.requestFocus(loginFragmentBinding.etPassword, getActivity().getWindow());
-            return false;
-        }
-        return true;
     }
 }

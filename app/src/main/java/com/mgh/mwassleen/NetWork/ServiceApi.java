@@ -4,6 +4,7 @@ package com.mgh.mwassleen.NetWork;
 
 import com.mgh.mwassleen.models.Login.Data;
 import com.mgh.mwassleen.models.Login.UserLoginModel;
+import com.mgh.mwassleen.models.Otp.OtpModel;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -17,6 +18,17 @@ public interface ServiceApi {
     Call<UserLoginModel> onLogin(
             @Field("phone") String phone
     );
+
+    @FormUrlEncoded
+    @POST("users/verify_code")
+    Call<OtpModel> onVerify(
+            @Field("verify_code") String verify_code,
+            @Field("login_field") String login_field
+
+    );
+
+
+
 //
 //    @FormUrlEncoded
 //    @POST("auth/register")
@@ -90,7 +102,6 @@ public interface ServiceApi {
 //******
 //////////////
 //////////
-
 /*
     @GET("supermarket/{id}/products")
     Call<AllProductCategories> onGetAllProductStores(@Path(value = "id", encoded = true) String id_, @Query("lang") String lang, @Query("page") long page);
@@ -127,9 +138,6 @@ public interface ServiceApi {
             @Field("long") String longitude,
             @Header("Authorization") String Authorization
     ); */
-
-
-
 //    @FormUrlEncoded
 //    @POST("restaurant/profile/update")
 //    Call<EdirProfileModel> OnUpdate(@Field("id") String id,
