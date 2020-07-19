@@ -31,17 +31,17 @@ public class LoginViewModel extends ViewModel {
             @Override
             public void onResponse(Call<UserLoginModel> call, Response<UserLoginModel> response) {
 
-                   if (response.isSuccessful()){
-                       userLoginModelMutableLiveData.setValue(response.body());
-                   }else {
-                       Toast.makeText(context, ""+response.message(), Toast.LENGTH_SHORT).show();
-                   }
+                if (response.isSuccessful()) {
+                    userLoginModelMutableLiveData.setValue(response.body());
+                } else {
+                    Toast.makeText(context, "" + response.message(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
             public void onFailure(Call<UserLoginModel> call, Throwable t) {
-                    Log.e("Error Login ," ,t.getMessage());
+                Log.e("Error Login ,", t.getMessage());
             }
         });
-        }
     }
+}

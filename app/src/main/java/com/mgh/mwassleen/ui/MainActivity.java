@@ -2,6 +2,7 @@ package com.mgh.mwassleen.ui;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 
 import com.mgh.mwassleen.R;
 import com.mgh.mwassleen.databinding.ActivityMainBinding;
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         adaptar.addNewFragment(new NotificationsFragment());
         adaptar.addNewFragment(new ProfileFragment());
         activityMainBinding.tabLayout.setupWithViewPager(activityMainBinding.viewpager);
+        activityMainBinding.viewpager.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+
         activityMainBinding.viewpager.setAdapter(adaptar);
         setUpTabsTopPager();
     }
