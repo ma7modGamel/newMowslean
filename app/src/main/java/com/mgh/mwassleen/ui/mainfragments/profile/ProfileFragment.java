@@ -1,6 +1,7 @@
 package com.mgh.mwassleen.ui.mainfragments.profile;
 
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -47,7 +48,17 @@ public class ProfileFragment extends Fragment {
 
 
 
-        // TODO: Use the ViewModel
+
     }
+    public void showFragment(Fragment fragment) {
+        if (getFragmentManager().getBackStackEntryCount() > 1) {
+            getFragmentManager().popBackStack();
+        }
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.containerProfile, fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
 
 }

@@ -1,5 +1,6 @@
 package com.mgh.mwassleen.ui.mainfragments.profile.setting;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -13,11 +14,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mgh.mwassleen.R;
+import com.mgh.mwassleen.databinding.SettingFragmentBinding;
 
 public class SettingFragment extends Fragment {
 
     private SettingViewModel mViewModel;
 
+    SettingFragmentBinding settingFragmentBinding;
     public static SettingFragment newInstance() {
         return new SettingFragment();
     }
@@ -25,14 +28,17 @@ public class SettingFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.setting_fragment, container, false);
+        settingFragmentBinding= DataBindingUtil.inflate(inflater,R.layout.setting_fragment, container, false);
+
+        return  settingFragmentBinding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(SettingViewModel.class);
-        // TODO: Use the ViewModel
+        settingFragmentBinding.setSettingVmodel(mViewModel);
+
     }
 
 }

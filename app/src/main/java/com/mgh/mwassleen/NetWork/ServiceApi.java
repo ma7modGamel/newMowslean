@@ -5,11 +5,15 @@ package com.mgh.mwassleen.NetWork;
 import com.mgh.mwassleen.models.Login.Data;
 import com.mgh.mwassleen.models.Login.UserLoginModel;
 import com.mgh.mwassleen.models.Otp.OtpModel;
+import com.mgh.mwassleen.models.PindingOrderModels.PindigModel;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ServiceApi {
 
@@ -26,6 +30,9 @@ public interface ServiceApi {
             @Field("login_field") String login_field
 
     );
+
+    @GET("newOrders")
+    Call<PindigModel> onGetPendingOrders(@Query("lang") String lang, @Query("page") long page, @Header("Authorization") String Authorization);
 
 
 
