@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
     PagerAdaptar adaptar;
     private void initWidget() {
         adaptar = new PagerAdaptar(getSupportFragmentManager());
-        adaptar.addNewFragment(new OrdersFragment());
         adaptar.addNewFragment(new NotificationsFragment());
+        adaptar.addNewFragment(new OrdersFragment());
         adaptar.addNewFragment(new ProfileFragment());
         activityMainBinding.tabLayout.setupWithViewPager(activityMainBinding.viewpager);
         activityMainBinding.viewpager.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);

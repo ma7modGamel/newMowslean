@@ -91,18 +91,21 @@ public class OtpFragment extends Fragment {
             public void onChanged(OtpModel otpModel) {
 
                 com.mgh.mwassleen.models.Otp.Data dataModel = otpModel.getData();
-                int id = dataModel.getId();
 
+                    int id = dataModel.getId();
                     String name =  dataModel.getName();
                     String phone =  dataModel.getPhone()+"";
                     String api_token =  dataModel.getToken();
                     Toast.makeText(getContext(), "مرحبا بك " + name, Toast.LENGTH_LONG).show();
+
                     globalPrefrencies.storeLoginStatus(true);
+
                     globalPrefrencies.storeUserId(id);
                     globalPrefrencies.storeName(name);
                     globalPrefrencies.storePhone(phone);
+
                     globalPrefrencies.storeApi_token(api_token);
-                    globalPrefrencies.storeLoginStatus(true);
+
                     Intent  intent=new Intent(getContext(), MainActivity.class);
                     startActivity(intent);
                     getActivity().finish();

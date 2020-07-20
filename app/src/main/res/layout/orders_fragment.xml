@@ -1,96 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#f6f6f6"
-    tools:context=".ui.mainfragments.orders.OrdersFragment">
 
-    <LinearLayout
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="OrderVmodel"
+            type="com.mgh.mwassleen.ui.mainfragments.orders.OrdersViewModel" />
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
-
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/toolbar"
-            android:elevation="0dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginEnd="15dp"
-                android:gravity="center"
-                android:lineSpacingExtra="4sp"
-                android:text="الطلبات الحالية"
-                android:textColor="#5db547"
-                android:textSize="14sp" />
-        </androidx.appcompat.widget.Toolbar>
+        tools:context=".ui.home.orders.OrdersFragment">
 
         <LinearLayout
-            android:gravity="end"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="40dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/toolbar"
+                android:elevation="0dp">
 
-            <Button
-                android:layout_width="110dp"
-                android:layout_height="25dp"
-                android:text="عرض حسب المنطقة"
-                android:textColor="#b4b4b4"
-                android:textSize="10sp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4sp"
+                    android:text="الطلبات"
+                    android:textColor="#5db547"
+                    android:textSize="14sp" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="32dp"
+                android:background="@drawable/tab_layout_background"
                 android:gravity="center"
-                android:lineSpacingExtra="3sp"
-                android:background="#eeeeee"
-                android:layout_marginEnd="63dp"
-                android:id="@+id/btn_showLocation"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp">
 
-                />
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
 
-            <TextView
-                android:layout_marginEnd="5dp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="#777777"
-                android:lineSpacingExtra="4sp"
-                android:layout_gravity="end"
-                android:text="(9)"
-                />
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    app:tabBackground="@drawable/tab_layout_selector"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabMode="scrollable"
+                    app:tabPaddingEnd="16dp"
+                    app:tabPaddingStart="16dp"
+                    app:tabRippleColor="@null"
+                    app:tabSelectedTextColor="@color/colorPrimary"
+                    app:tabTextAppearance="@style/TabTextAppearance" />
 
-            <TextView
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="#5db547"
-                android:lineSpacingExtra="4sp"
-                android:layout_gravity="end"
-                android:text="طلبات قيد التنفيذ"
-                />
+            </LinearLayout>
 
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </LinearLayout>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:id="@+id/rv_PendingOrders"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            />
-
-
-
-
-
-    </LinearLayout>
-
-</FrameLayout>
+    </FrameLayout>
+</layout>
